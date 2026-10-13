@@ -3,6 +3,8 @@ import wyw from '@wyw-in-js/vite';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  // Заранее, иначе Vite находит зависимость посреди прогона, пересобирает зависимости и хуки падают.
+  optimizeDeps: { include: ['react', 'react/jsx-runtime', 'react-dom/client', 'vitest-browser-react', '@floating-ui/react', '@linaria/react'] },
   test: {
     globals: true,
     projects: [
