@@ -1,0 +1,9 @@
+/* Design tokens — публичный контракт: Consumer может переопределить любой в своём :root. */
+:root {
+  --ui-color-accent: rgb(37, 99, 235);
+  --ui-color-on-accent: rgb(255, 255, 255);
+  --ui-color-text: rgb(17, 24, 39);
+  --ui-color-surface: rgb(255, 255, 255);
+  --ui-color-border: rgb(209, 213, 219);
+  --ui-radius: 6px;
+}

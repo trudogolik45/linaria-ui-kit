@@ -1,0 +1,11 @@
+/* Тот же внешний вид, что у Button из библиотеки, но через CSS Modules:
+   Vite переименует .button в уникальный класс вроде _button_x7f3a. */
+.button {
+  font: inherit;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid var(--ui-color-accent);
+  border-radius: var(--ui-radius);
+  background: var(--ui-color-accent);
+  color: var(--ui-color-on-accent);
+}
