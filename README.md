@@ -85,3 +85,7 @@ CSS подключать не нужно: каждый компонент сам
 **Темы без JS.** Токены — CSS-переменные со значениями через `light-dark()`; `color-scheme` выбирает светлое или тёмное значение. Никакого `ThemeProvider` и Context.
 
 **Compound component и Context.** `Tabs.Tab` и `Tabs.Panel` узнают выбранную вкладку из React Context, который создаёт `<Tabs>`, — без проброса пропсов.
+
+## Лицензия
+
+[MIT](LICENSE).

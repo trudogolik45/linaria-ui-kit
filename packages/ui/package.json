@@ -1,6 +1,7 @@
 {
   "name": "@trudogolik45/ui",
   "version": "0.1.0",
+  "license": "MIT",
   "type": "module",
   "sideEffects": [
     "*.css"
