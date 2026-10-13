@@ -15,13 +15,14 @@ function applyTheme(theme: Theme) {
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState<Theme>('system');
 
-  const change = (next: string) => {
-    setTheme(next as Theme);
-    applyTheme(next as Theme);
+  const selectTheme = (value: string) => {
+    const next = value as Theme;
+    setTheme(next);
+    applyTheme(next);
   };
 
   return (
-    <Tabs value={theme} onChange={change}>
+    <Tabs value={theme} onChange={selectTheme}>
       <Tabs.List>
         <Tabs.Tab value="system">Системная</Tabs.Tab>
         <Tabs.Tab value="light">Светлая</Tabs.Tab>

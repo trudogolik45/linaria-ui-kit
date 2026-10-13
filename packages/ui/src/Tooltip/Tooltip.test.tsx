@@ -1,4 +1,5 @@
 import { page, userEvent } from 'vitest/browser';
+import { createRef } from 'react';
 import { render } from 'vitest-browser-react';
 import { Button, Tooltip } from '../index';
 
@@ -43,4 +44,16 @@ test('hides the hint on Escape', async () => {
   await userEvent.keyboard('{Escape}');
 
   await expect.element(page.getByRole('tooltip')).not.toBeInTheDocument();
+});
+
+test('keeps the ref the consumer put on the trigger', async () => {
+  const ref = createRef<HTMLButtonElement>();
+
+  await render(
+    <Tooltip content="Saves the draft">
+      <Button ref={ref}>Save</Button>
+    </Tooltip>,
+  );
+
+  expect(ref.current).toBe(page.getByRole('button', { name: 'Save' }).element());
 });

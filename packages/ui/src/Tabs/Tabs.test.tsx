@@ -66,3 +66,11 @@ test('only the selected tab is reachable with the Tab key', async () => {
 
   await expect.element(page.getByRole('tab', { name: 'Pear' })).toHaveFocus();
 });
+
+test('without a selected tab the first tab is still reachable with the Tab key', async () => {
+  await render(<Fruits />);
+
+  await userEvent.keyboard('{Tab}');
+
+  await expect.element(page.getByRole('tab', { name: 'Apple' })).toHaveFocus();
+});

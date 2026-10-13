@@ -1,12 +1,12 @@
 import { styled } from '@linaria/react';
-import type { ButtonHTMLAttributes } from 'react';
+import type { ComponentPropsWithRef } from 'react';
 import '../theme/theme.css';
 
 export type ButtonVariant = 'primary' | 'ghost';
 
 export type ButtonSize = 'small' | 'medium' | 'large';
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ComponentPropsWithRef<'button'> & {
   variant?: ButtonVariant;
   size?: ButtonSize;
   /** Перекрашивает только эту кнопку поверх токена темы `--ui-color-accent`. */

@@ -16,6 +16,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @trudogolik45/ui exec playwright install --with-deps chromium-headless-shell
+      - run: pnpm build
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm check:treeshake

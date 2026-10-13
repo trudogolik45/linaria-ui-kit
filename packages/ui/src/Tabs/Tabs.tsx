@@ -101,7 +101,8 @@ function Tab({ value, children }: { value: string; children: ReactNode }) {
       aria-selected={isSelected}
       aria-controls={panelId(baseId, value)}
       // Roving tabindex: Tab-клавишей попадаешь только на выбранную вкладку, дальше — стрелками.
-      tabIndex={isSelected ? 0 : -1}
+      // Пока ничего не выбрано, доступны все — иначе на Tabs не попасть с клавиатуры.
+      tabIndex={isSelected || selected === undefined ? 0 : -1}
       data-value={value}
       onClick={() => select(value)}
     >
