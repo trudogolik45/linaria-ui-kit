@@ -1,9 +1,21 @@
-/* Design tokens — публичный контракт: Consumer может переопределить любой в своём :root. */
+/* Design tokens — публичный контракт: Consumer может переопределить любой в своём :root.
+   light-dark() берёт первое значение в светлой теме и второе в тёмной.
+   Тема по умолчанию — системная; <html data-theme="light|dark"> фиксирует её вручную. */
 :root {
-  --ui-color-accent: rgb(37, 99, 235);
-  --ui-color-on-accent: rgb(255, 255, 255);
-  --ui-color-text: rgb(17, 24, 39);
-  --ui-color-surface: rgb(255, 255, 255);
-  --ui-color-border: rgb(209, 213, 219);
+  color-scheme: light dark;
+
+  --ui-color-accent: light-dark(rgb(37, 99, 235), rgb(96, 165, 250));
+  --ui-color-on-accent: light-dark(rgb(255, 255, 255), rgb(17, 24, 39));
+  --ui-color-text: light-dark(rgb(17, 24, 39), rgb(243, 244, 246));
+  --ui-color-surface: light-dark(rgb(255, 255, 255), rgb(17, 24, 39));
+  --ui-color-border: light-dark(rgb(209, 213, 219), rgb(55, 65, 81));
   --ui-radius: 6px;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
 }

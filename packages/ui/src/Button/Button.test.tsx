@@ -54,11 +54,16 @@ test('large button is taller than small button', async () => {
 });
 
 test('primary button takes its color from the theme accent token by default', async () => {
-  await render(<Button>Themed</Button>);
+  await render(
+    <>
+      <Button>Themed</Button>
+      <div data-testid="accent-probe" style={{ background: 'var(--ui-color-accent)' }} />
+    </>,
+  );
 
   const button = page.getByRole('button', { name: 'Themed' }).element();
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--ui-color-accent').trim();
+  const accent = getComputedStyle(page.getByTestId('accent-probe').element()).backgroundColor;
 
-  expect(accent).not.toBe('');
+  expect(accent).not.toBe('rgba(0, 0, 0, 0)');
   expect(getComputedStyle(button).backgroundColor).toBe(accent);
 });
